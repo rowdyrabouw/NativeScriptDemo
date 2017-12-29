@@ -1,0 +1,40 @@
+.actionbar {
+  background-color: rgb(48, 51, 22);
+  color: rgb(255, 255, 255);
+  margin: 0;
+  border: 0 0 1 0;
+  border-width: 1;
+  border-style: solid;
+  border-color: #e2e6eb;
+}
+
+.actionbar-title {
+  text-align: center;
+  font-weight: bold;
+  padding-right: 5;
+}
+
+.actionbar-title-text-right {
+  text-align: center;
+  font-weight: bold;
+  padding-left: 35;
+}
+
+.actionbar-text-right {
+  text-align: right;
+  padding-right: 30;
+}
+
+.modal-actionbar {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  /* font-weight: bold;
+    font-size: 20;
+    font-family: calibri, helvetica, sans-serif; */
+  height: 45;
+  /* vertical-align: middle; */
+  padding: 0 10 0 10;
+  border-color: rgb(220, 220, 220);
+  border-style: solid;
+  border-width: 1px;
+}

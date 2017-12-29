@@ -1,0 +1,14 @@
+*.log
+**/*.js
+*.js.map
+.nsbuildinfo
+*.gradle
+hooks
+node_modules
+report
+platforms/android
+platforms/ios
+app/tns_modules
+app/App_Resources/iOS/MijnInkomenVoorLater.entitlements
+!app/shared/calcbox/taffy.js
+!webpack.config.js

@@ -1,0 +1,27 @@
+{
+  "HOME": {
+    "TITLE": "Mobilization7 Polska!",
+    "TAGLINE": "Kto wygra ... wygramy!"
+  },
+  "SLIDER": {
+    "ACTIONBAR": "Slider",
+    "HEADER": "Default Slider",
+    "HEADER_CUSTOM": "Custom iOS Slider"
+  },
+  "VIDEO": {
+    "ACTIONBAR": "Video"
+  },
+  "SOUNDBOARD": {
+    "ACTIONBAR": "Soundboard"
+  },
+  "MIP": {
+    "ACTIONBAR": "MiP Robot"
+  },
+  "MENU": {
+    "HOME": "Home",
+    "SLIDERS": "Sliders",
+    "VIDEO": "Video",
+    "SOUNDBOARD": "Soundboard",
+    "MIP": "MiP Robot"
+  }
+}

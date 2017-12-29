@@ -1,0 +1,20 @@
+<ActionBar class="actionbar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <StackLayout>
+        <GridLayout columns="35 * 45">
+            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa fa-white center" col="0"></Label>
+            <Label [text]="'SPEECHRECOGNITION.TITLE' | translate" class="actionbar-title" col="1"></Label>
+        </GridLayout>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout class="page">
+        <Button text="checkPermissions" (tap)="checkPermissions()" class="button button-dark"></Button>
+        <Button text="startListening" (tap)="startListening()" class="button button-dark"></Button>
+        <Button text="stopListening" (tap)="stopListening()" class="button button-dark"></Button>
+        <!-- <Label text="Google Assistent" textWrap="true"></Label> -->
+        <Label [text]="recognizedText" textWrap="true" class="header" style="padding-top: 50; font-size: 40;"></Label>
+
+    </StackLayout>
+</ScrollView>

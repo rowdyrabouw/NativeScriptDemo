@@ -1,0 +1,28 @@
+<ActionBar class="actionbar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <StackLayout>
+        <GridLayout columns="35 * 45">
+            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa fa-white center" col="0"></Label>
+            <Label [text]="'SOUNDBOARD.TITLE' | translate" class="actionbar-title" col="1"></Label>
+        </GridLayout>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout class="page">
+        <GridLayout rows="*, *, *" columns="*, *, *" style="text-align: center">
+            <!-- row 1 -->
+            <Label [text]="'fa-square' | fonticon" row="0" col="0" class="fa fa-icon" (tap)="play1()"></Label>
+            <Label [text]="'fa-square' | fonticon" row="0" col="1" class="fa fa-icon" (tap)="play2()"></Label>
+            <Label [text]="'fa-square' | fonticon" row="0" col="2" class="fa fa-icon" (tap)="play3()"></Label>
+            <!-- row 2 -->
+            <Label [text]="'fa-square' | fonticon" row="1" col="0" class="fa fa-icon" (tap)="play4()"></Label>
+            <Label [text]="'fa-square' | fonticon" row="1" col="1" class="fa fa-icon" (tap)="play5()"></Label>
+            <Label [text]="'fa-square' | fonticon" row="1" col="2" class="fa fa-icon" (tap)="play6()"></Label>
+            <!-- row 3 -->
+            <Label [text]="'fa-square' | fonticon" row="2" col="0" class="fa fa-icon" (tap)="play7()"></Label>
+            <Label [text]="'fa-square' | fonticon" row="2" col="1" class="fa fa-icon" (tap)="play8()"></Label>
+            <Label [text]="'fa-square' | fonticon" row="2" col="2" class="fa fa-icon" (tap)="play9()"></Label>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>

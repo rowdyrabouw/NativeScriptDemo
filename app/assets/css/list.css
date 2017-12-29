@@ -1,0 +1,41 @@
+.row {
+    background-color: rgb(255, 255, 255);
+    padding: 3 20 10 20;
+    border-color: rgb(220, 220, 220);
+    border-width: 0 0 1 0;
+}
+
+.row-top {
+    border-width: 1 0 1 0;
+}
+
+.list-open {
+    background-color: rgb(234, 101, 13);
+    color: rgb(255, 255, 255);
+    padding: 10 20 10 20;
+    font-size: 16;
+}
+
+.list-closed {
+    background-color: rgb(255, 255, 255);
+    /*color: rgb(255, 255, 255);*/
+    padding: 10 20 10 20;
+    font-size: 16;
+}
+
+.list-view {
+    background-color: rgb(255, 255, 255);
+}
+
+.list-item {
+    background-color: rgb(255, 255, 255);
+    padding: 10 20 10 20;
+    font-size: 16;
+}
+
+.list-item-selected {
+    background-color: rgb(234, 101, 13);
+    padding: 10 20 10 20;
+    font-size: 16;
+    color: rgb(255, 255, 255);
+}

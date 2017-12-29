@@ -1,0 +1,8 @@
+.debug {
+    background-color: rgb(234, 101, 13);
+}
+
+.debug .text {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}

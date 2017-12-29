@@ -1,0 +1,58 @@
+.menu {
+  background-color: rgb(255, 255, 255);
+}
+
+.sidedrawer-logo-wrapper {
+  background-color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+.sidedrawer-logo {
+  height: 91;
+}
+
+.sidedrawer {
+  background-color: rgb(245, 245, 245);
+}
+
+.sidedrawer-item {
+  color: rgb(0, 0, 0);
+  padding: 10;
+  padding-left: 15;
+  font-size: 16;
+  font-family: calibri, helvetica, sans-serif;
+  border-color: rgb(220, 220, 220);
+  border-width: 0 0 1 0;
+}
+
+.sidedrawer-item--active {
+  color: rgb(255, 255, 255);
+  background-color: rgb(48, 51, 22);
+}
+
+.sidedrawer-item--inactive {
+  color: rgb(160, 160, 160);
+}
+
+.sidedrawer-item-icon {
+  color: rgb(48, 51, 22);
+  font-size: 22;
+  text-align: center;
+}
+
+.sidedrawer-item--active .sidedrawer-item-icon {
+  color: rgb(255, 255, 255);
+}
+
+.sidedrawer-item--inactive .sidedrawer-item-icon {
+  color: rgb(160, 160, 160);
+}
+
+.sidedrawer-item-text {
+  padding-left: 10;
+}
+
+.sidedrawer-item-header {
+  font-weight: bold;
+  color: rgb(48, 51, 22);
+}

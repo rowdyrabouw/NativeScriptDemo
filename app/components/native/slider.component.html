@@ -1,0 +1,26 @@
+<ActionBar class="actionbar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <StackLayout>
+        <GridLayout columns="35 * 45">
+            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa fa-white center" col="0"></Label>
+            <Label [text]="'SLIDERS.TITLE' | translate" class="actionbar-title" col="1"></Label>
+        </GridLayout>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout>
+        <StackLayout class="page">
+            <Label [text]="'SLIDERS.HEADER' | translate" class="header center"></Label>
+            <StackLayout class="slider-container">
+                <Slider value="50" class="slider"></Slider>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout class="page">
+            <Label [text]="'SLIDERS.HEADER_CUSTOM' | translate" class="header center"></Label>
+            <StackLayout class="slider-container">
+                <Slider slider-icon value="50" class="slider"></Slider>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

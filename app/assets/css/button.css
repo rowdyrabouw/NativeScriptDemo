@@ -1,0 +1,22 @@
+.button {
+  border-radius: 5;
+  background-color: rgb(255, 255, 255);
+  padding-top: 7;
+  padding-bottom: 7;
+  width: 90%;
+  font-weight: bold;
+  font-size: 16;
+  font-family: calibri, helvetica, sans-serif;
+  color: rgb(48, 51, 22);
+  text-align: center;
+  margin: 10 0 10 0;
+}
+
+.button-small {
+  width: 40%;
+}
+
+.button-dark {
+  background-color: rgb(48, 51, 22);
+  color: rgb(255, 255, 255);
+}

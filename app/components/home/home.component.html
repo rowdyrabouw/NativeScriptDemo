@@ -1,0 +1,27 @@
+<ActionBar class="actionbar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <StackLayout>
+        <GridLayout columns="35 * 45">
+            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa fa-white center" col="0"></Label>
+            <Label [text]="'HOME.TITLE' | translate" class="actionbar-title" col="1"></Label>
+            <Label [text]="'fa-volume-up' | fonticon" (tap)="toggleAudio()" class="fa fa-white left" col="2"></Label>
+        </GridLayout>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView style="height: 100%; background-color: rgb(48, 51, 22);">
+    <StackLayout>
+        <StackLayout style="height: 150; background-color: rgb(173, 203, 203);">
+        </StackLayout>
+        <StackLayout>
+            <Image class="picture" src="~/assets/images/mobilization-poster.jpg"></Image>
+        </StackLayout>
+        <StackLayout class="pt20">
+            <Label [text]="'HOME.TAGLINE' | translate" class="header header-light"></Label>
+            <GridLayout rows="*" columns="*, *" class="pt40">
+                <Button text="English" (tap)="changeLanguage('en')" class="button button-small" row="0" col="0"></Button>
+                <Button text="Polski" (tap)="changeLanguage('pl')" class="button button-small" row="0" col="1"></Button>
+            </GridLayout>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

@@ -1,0 +1,23 @@
+.header {
+  font-size: 16;
+  font-weight: bold;
+  font-family: calibri, helvetica, sans-serif;
+  color: rgb(48, 51, 22);
+  text-align: center;
+}
+
+.header-light {
+  color: rgb(255, 255, 255);
+  font-size: 20;
+}
+
+.text {
+  font-size: 14;
+  font-family: calibri, helvetica, sans-serif;
+  color: rgb(0, 0, 0);
+  margin: 10 0 0 0;
+}
+
+.bold {
+  font-weight: bold;
+}

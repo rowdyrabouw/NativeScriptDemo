@@ -1,0 +1,14 @@
+<ActionBar class="actionbar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <StackLayout>
+        <GridLayout columns="35 * 45">
+            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa fa-white center" col="0"></Label>
+            <Label [text]="'TEMPLATE.TITLE' | translate" class="actionbar-title" col="1"></Label>
+        </GridLayout>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout class="page">
+    </StackLayout>
+</ScrollView>
