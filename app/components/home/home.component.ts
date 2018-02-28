@@ -1,47 +1,22 @@
-// Angular
 import { Component, OnInit } from "@angular/core";
+import { Page } from "ui/page";
 
-// Plugins
-import { TNSPlayer } from "nativescript-audio";
-import { TranslateService } from "@ngx-translate/core";
-
-// Shared
-import { MenuComponent } from "../../shared/menu/menu.component";
+import { SideDrawerComponent } from "../../shared/sidedrawer/sidedrawer.component";
 
 @Component({
   moduleId: module.id,
-  selector: "home",
+  selector: "nsd-home",
   templateUrl: "home.component.html"
 })
 export class HomeComponent implements OnInit {
-  private _player: TNSPlayer;
-  public constructor(
-    private menuComponent: MenuComponent,
-    private translate: TranslateService
-  ) {}
+  constructor(private sidedrawerComponent: SideDrawerComponent, private page: Page) {}
 
-  toggleDrawer(): void {
-    this.menuComponent.toggleMenu();
+  toggleDrawer() {
+    this.sidedrawerComponent.toggleDrawer();
   }
 
   ngOnInit() {
-    this._player = new TNSPlayer();
-    this._player.initFromFile({
-      audioFile: "~/assets/audio/testing.mp3", // ~ = app directory
-      loop: false
-    });
-  }
-
-  toggleAudio() {
-    if (this._player.isAudioPlaying()) {
-      this._player.seekTo(0);
-      this._player.pause();
-    } else {
-      this._player.play();
-    }
-  }
-
-  public changeLanguage(lang: string) {
-    this.translate.use(lang);
+    this.sidedrawerComponent.selectedPage = "home";
+    this.page.actionBarHidden = true;
   }
 }

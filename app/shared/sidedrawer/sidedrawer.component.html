@@ -1,0 +1,27 @@
+<RadSideDrawer tkToggleNavButton>
+
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+        <StackLayout row="0" class="sidedrawer-header">
+            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+            <Label class="sidedrawer-header-brand" text="User Name"></Label>
+            <Label class="footnote" text="username@mail.com"></Label>
+        </StackLayout>
+
+        <ScrollView row="1">
+            <StackLayout class="sidedrawer-content">
+                <SideDrawerItem title="Home" route="/home" icon="&#xf015;" [isSelected]="isPageSelected('home')"></SideDrawerItem>
+                <SideDrawerItem title="Slider" route="/slider" icon="&#xf015;" [isSelected]="isPageSelected('slider')"></SideDrawerItem>
+                <SideDrawerItem title="API" route="/api" icon="&#xf015;" [isSelected]="isPageSelected('api')"></SideDrawerItem>
+                <SideDrawerItem title="Guess that song" route="/guess" icon="&#xf015;" [isSelected]="isPageSelected('guess')"></SideDrawerItem>
+                <SideDrawerItem title="Speech Recognition" route="/speechrecognition" icon="&#xf015;" [isSelected]="isPageSelected('speechrecognition')"></SideDrawerItem>
+                <SideDrawerItem title="Video" route="/video" icon="&#xf1ea;" [isSelected]="isPageSelected('video')"></SideDrawerItem>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <StackLayout tkMainContent>
+        <router-outlet></router-outlet>
+    </StackLayout>
+
+</RadSideDrawer>

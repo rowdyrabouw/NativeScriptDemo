@@ -1,0 +1,62 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+// Font icon class
+.fa {
+  font-family: "FontAwesome";
+}
+// Common page class
+.page-content {
+  .page-placeholder {
+    color: $page-icon-color;
+    font-size: $page-content-placeholder-font-size;
+    vertical-align: center;
+    horizontal-align: center;
+  }
+
+  .page-icon {
+    font-size: 72;
+    vertical-align: top;
+    horizontal-align: center;
+    color: $page-icon-color;
+    margin-top: 20%;
+  }
+}
+
+//Action bar
+ActionBar .action-bar-title {
+  horizontal-align: center;
+}
+
+.action-bar {
+  background-color: rgb(66, 7, 10);
+  color: rgb(255,255,255);
+  font-weight: bold;
+  flat: true;
+}
+
+.full {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.btn {
+  background-color: rgb(66, 7, 10);
+  color: rgb(255,255,255);
+  border-radius: 10;
+  font-weight: bold;
+}
+
+.btn-small {
+  width: 250;
+}
+
+.btn-inverse {
+  background-color: rgb(255,255,255);
+  color: rgb(66, 7, 10);
+}
+
+@import "./home";
+@import "./guess";
+@import "./slider";
+@import "./speech";

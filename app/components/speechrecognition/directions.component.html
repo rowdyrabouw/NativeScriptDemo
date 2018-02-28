@@ -1,0 +1,14 @@
+<ActionBar class="action-bar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <StackLayout>
+        <GridLayout columns="35 * 45">
+            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa center" col="0"></Label>
+            <Label [text]="'HOME.TITLE' | translate" class="actionbar-title" col="1"></Label>
+        </GridLayout>
+    </StackLayout>
+</ActionBar>
+
+<StackLayout>
+    <Button text="Directions" (tap)="showDirections()"></Button>
+    <img src="~/assets/images/odin.jpg" alt="" style="width: 300; border-radius: 150; border-width: 15; border-color: yellow;">
+</StackLayout>

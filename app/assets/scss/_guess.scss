@@ -1,0 +1,28 @@
+.spinner-wrapper {
+  width: 300;
+  height: 300;
+  margin-top: 40;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border-radius: 125;
+  width: 250;
+  height: 250;
+  animation-name: spin;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-width: 3;
+  border-color: rgb(148, 30, 28);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360);
+  }
+}

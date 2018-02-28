@@ -1,47 +1,48 @@
-// Angular
 import { Component, OnInit, NgZone } from "@angular/core";
 
-// Plugins
-import { SpeechRecognition } from "nativescript-speech-recognition";
-import { SpeechRecognitionTranscription } from "nativescript-speech-recognition";
+import { SideDrawerComponent } from "../../shared/sidedrawer/sidedrawer.component";
+
+import { SpeechRecognition, SpeechRecognitionTranscription } from "nativescript-speech-recognition";
 import { TNSTextToSpeech, SpeakOptions } from "nativescript-texttospeech";
 import * as camera from "nativescript-camera";
 import * as SocialShare from "nativescript-social-share";
 import { ImageSource } from "tns-core-modules/image-source";
-import { TNSPlayer } from "nativescript-audio";
-
-// Shared
-import { MenuComponent } from "../../shared/menu/menu.component";
+import { Directions } from "nativescript-directions";
 
 @Component({
   moduleId: module.id,
-  selector: "speechrecognition",
+  selector: "Speech",
   templateUrl: "speechrecognition.component.html"
 })
 export class SpeechRecognitionComponent implements OnInit {
-  recognizedText: string;
-  private speechRecognition = new SpeechRecognition();
-  private _player: TNSPlayer;
   private text2speech: TNSTextToSpeech;
+  private speechRecognition: SpeechRecognition;
+  private directions: Directions;
+  recognizedText: string;
+  image: string;
+  isHela: boolean;
+  isGaladriel: boolean;
 
-  constructor(private menuComponent: MenuComponent, private zone: NgZone) {}
+  constructor(private sidedrawerComponent: SideDrawerComponent, private zone: NgZone) {}
 
-  ngOnInit() {
-    this.text2speech = new TNSTextToSpeech();
-    this.checkAvailability();
-    camera.requestPermissions();
-    this._player = new TNSPlayer();
-    this._player.initFromFile({
-      audioFile: "~/assets/audio/7510.mp3", // ~ = app directory
-      loop: false
-    });
+  toggleDrawer() {
+    this.sidedrawerComponent.toggleDrawer();
   }
 
-  checkAvailability(): void {
+  ngOnInit() {
+    this.sidedrawerComponent.selectedPage = "speechrecognition";
+    this.text2speech = new TNSTextToSpeech();
+    this.speechRecognition = new SpeechRecognition();
+    this.directions = new Directions();
+    this.checkAvailability();
+    camera.requestPermissions();
+  }
+
+  private checkAvailability(): void {
     this.speechRecognition
       .available()
       .then(
-        (available: boolean) => console.log(available ? "YES!" : "NO"),
+        (available: boolean) => alert(available ? "SpeechRecognition is available" : "SpeechRecognition is NOT available!"),
         (err: string) => console.log(err)
       );
   }
@@ -74,7 +75,7 @@ export class SpeechRecognitionComponent implements OnInit {
     this.speechRecognition.stopListening().then(
       () => {
         console.log(`stopped listening`);
-        this.speak();
+        this.processInput();
       },
       (errorMessage: string) => {
         console.log(`Stop error: ${errorMessage}`);
@@ -82,53 +83,67 @@ export class SpeechRecognitionComponent implements OnInit {
     );
   }
 
-  speak() {
-    let speakOptions: SpeakOptions = {
-      text: this.recognizedText, /// *** required ***
-      speakRate: 1, // optional - default is 1.0
-      pitch: 1, // optional - default is 1.0
-      locale: "en-GB",
-      finishedCallback: () => {
-        this.handleFollowUpAction(this.recognizedText.toLowerCase());
-      }
-    };
-
-    this.text2speech.speak(speakOptions);
-  }
-
-  checkPermissions() {
-    this.speechRecognition.requestPermission().then((granted: boolean) => {
-      alert("Granted? " + granted);
-    });
-  }
-
-  private handleFollowUpAction(text: string): void {
-    if (text.indexOf("share") > -1 && text.indexOf("selfie") > -1) {
-      this.shareSelfie();
-    } else if (
-      text.indexOf("year") > -1 ||
-      text.indexOf("7510") > -1 ||
-      text.indexOf("day") > -1 ||
-      text.indexOf("judgement") > -1
-    ) {
-      this.playAudio();
+  private processInput() {
+    let text = this.recognizedText;
+    let speak: string;
+    if (text.indexOf("introduce") > -1 || text.indexOf("yourself") > -1) {
+      speak = "I am Hela, Odin's firstborn, commander of the leegions of Asgard, the rightful heir to the throne and the Goddess of Death!";
+      this.speakHela(speak);
+    } else if (text.indexOf("ego") > -1 || text.indexOf("alterego") > -1 || text.indexOf("name") > -1) {
+      speak = "Alright sissy, you can also call me lady guh-Lad-ree-ell, the Lady of Light.";
+      this.speakGaladriel(speak);
+    } else if (text.indexOf("share") > -1 || text.indexOf("selfie") > -1) {
+      speak = "That's a nice idea. Let's take a picture together and put it on Twitter!";
+      this.speakGaladriel(speak, "selfie");
+    } else if (text.indexOf("redecorate") > -1 || text.indexOf("house") > -1) {
+      speak = "I've found a lovely small furniture store nearby, called eekayAh. Would you like some directions?";
+      this.speakGaladriel(speak);
+    } else if (text.indexOf("yes") > -1 || text.indexOf("please") > -1) {
+      speak = "It's nearby, see for yourself.";
+      this.speakGaladriel(speak, "directions");
     }
   }
 
-  playAudio(): void {
+  private speakHela(aText: string) {
+    this.isHela = true;
+    this.isGaladriel = false;
+    this.setClasses();
     let speakOptions: SpeakOptions = {
-      text: `That sounds like Zager and Evans with In The Year 2525, doesn't it?`,
-      speakRate: 1,
-      pitch: 0.5,
+      text: aText,
+      speakRate: 0.4,
+      pitch: 0.4,
+      locale: "en-US",
+      finishedCallback: () => {}
+    };
+    this.text2speech.speak(speakOptions);
+  }
+
+  private speakGaladriel(aText: string, aAction?: string) {
+    this.isHela = false;
+    this.isGaladriel = true;
+    this.setClasses();
+    let speakOptions: SpeakOptions = {
+      text: aText,
+      speakRate: 0.5,
+      pitch: 1,
       locale: "en-US",
       finishedCallback: () => {
-        this._player.play();
+        if (aAction) {
+          switch (aAction) {
+            case "selfie":
+              this.shareSelfie();
+              break;
+            case "directions":
+              this.showDirections();
+              break;
+          }
+        }
       }
     };
     this.text2speech.speak(speakOptions);
   }
 
-  shareSelfie() {
+  private shareSelfie() {
     camera
       .takePicture({
         width: 1000,
@@ -141,7 +156,32 @@ export class SpeechRecognitionComponent implements OnInit {
       });
   }
 
-  toggleDrawer(): void {
-    this.menuComponent.toggleMenu();
+  private showDirections() {
+    this.directions
+      .navigate({
+        from: {
+          address: "Radisson Blu Waterfront Hotel, Stockholm"
+        },
+        to: [
+          {
+            address: "Regeringsgatan 65, 111 56 Stockholm, Sweden"
+          }
+        ]
+      })
+      .then(
+        () => {
+          console.log("Maps app launched.");
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  setClasses() {
+    return {
+      hela: this.isHela,
+      galadriel: this.isGaladriel
+    };
   }
 }

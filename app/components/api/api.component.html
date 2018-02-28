@@ -1,0 +1,30 @@
+<ActionBar class="action-bar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <StackLayout>
+        <GridLayout columns="35 * 45">
+            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa center" col="0"></Label>
+            <Label [text]="'HOME.TITLE' | translate" class="actionbar-title" col="1"></Label>
+        </GridLayout>
+    </StackLayout>
+</ActionBar>
+
+<ScrollView>
+
+    <StackLayout>
+        <GridLayout rows="auto, auto, auto, auto, auto, auto, auto">
+            <TextField row="0" (textChange)="SearchCharacter($event)" autocorrect="false" style="background-color:yellow; margin: 10;"></TextField>
+            <GridLayout row="1" columns="*, *, *, *">
+                <Button col="0" text="Search" (tap)="ShowCharacter()"></Button>
+                <Button col="1" text="Open" (tap)="ShowListPicker()"></Button>
+                <Button col="2" text="Pick" (tap)="ShowCharacter()"></Button>
+                <Button col="3" text="Clear" (tap)="ClearCharacter()"></Button>
+            </GridLayout>
+            <Button row="2" text="Show Modal" (tap)="showModal()" class="btn btn-primary"></Button>
+            <ListPicker row="3" [items]="characterList" selectedIndex="0" (selectedIndexChange)="SelectedIndexChanged($event)" [visibility]="showListPicker ? 'visible' : 'collapsed'"></ListPicker>
+            <Label row="4" [text]="name" textWrap="true"></Label>
+            <Label row="5" [text]="description" textWrap="true"></Label>
+            <Image row="6" [src]="image"></Image>
+        </GridLayout>
+    </StackLayout>
+
+</ScrollView>

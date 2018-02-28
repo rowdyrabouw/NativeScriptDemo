@@ -1,26 +1,26 @@
-import {
-  NgModule,
-  NgModuleFactoryLoader,
-  NO_ERRORS_SCHEMA
-} from "@angular/core";
+import { NgModule, NgModuleFactoryLoader, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptHttpModule } from "nativescript-angular/http";
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NSModuleFactoryLoader } from "nativescript-angular/router";
+
 import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/angular";
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 
-import {
-  NativeScriptRouterModule,
-  NSModuleFactoryLoader
-} from "nativescript-angular/router";
-import { AppRoutes, AppComponents } from "./app.routing";
-import { Http } from "@angular/http";
+import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
+import { Http } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
+
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { SliderIconDirective } from "./components/native/slider.directive";
+
+import { SideDrawerComponent } from "./shared/sidedrawer/sidedrawer.component";
+import { SideDrawerWrapperComponent } from "./shared/sidedrawer/sidedrawer-wrapper/sidedrawer-wrapper.component";
+
+import { LanguageService } from "./services/language.service";
+import { MarvelService } from "./services/marvel.service";
 
 // for AoT compilation
 export function translateLoaderFactory(http: Http) {
@@ -28,29 +28,26 @@ export function translateLoaderFactory(http: Http) {
 }
 
 @NgModule({
-  declarations: [AppComponent, ...AppComponents, SliderIconDirective],
   bootstrap: [AppComponent],
   imports: [
+    HttpClientModule,
     NativeScriptModule,
     NativeScriptUISideDrawerModule,
+    AppRoutingModule,
     NativeScriptHttpModule,
-    NativeScriptFormsModule,
-    NativeScriptRouterModule,
-    NativeScriptRouterModule.forRoot(AppRoutes),
-    TNSFontIconModule.forRoot({
-      fa: "assets/css/font-awesome-vendor.css"
-    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         deps: [Http],
         useFactory: translateLoaderFactory
       }
+    }),
+    TNSFontIconModule.forRoot({
+      fa: "./assets/css/font-awesome.css"
     })
   ],
-  schemas: [NO_ERRORS_SCHEMA],
-  providers: [
-    { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader }
-  ]
+  declarations: [AppComponent, SideDrawerComponent, SideDrawerWrapperComponent],
+  providers: [LanguageService, MarvelService, { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader }],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {}

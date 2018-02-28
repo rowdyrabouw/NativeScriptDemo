@@ -49,9 +49,5 @@
 	<false/>
 	<key>NSCalendarsUsageDescription</key>
 	<string>This application needs to access your calendar events.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Recording Stuff</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>SpeechRecognition usage</string>
 </dict>
 </plist>
