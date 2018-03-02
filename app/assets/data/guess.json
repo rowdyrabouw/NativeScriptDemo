@@ -1,76 +1,29 @@
 [
   {
-    "artist": "Basshunter",
-    "title": "Boten Anna",
+    "artist": "2 Unlimited",
+    "title": "No limit",
     "year": 2006,
-    "locale": "sv-SE",
-    "image": "basshunter.jpg",
-    "lyric": "Hon röjer upp I våran kanal.\nJag vill berätta för dig att jag känner en bot.\nJag känner en bot\nHon heter Anna. Anna heter hon.",
+    "locale": "en-GB",
+    "image": "2-unlimited.jpg",
+    "lyric": "Let me hear you say yeah!",
     "file": "basshunter.mp3"
   },
   {
-    "artist": "Avicii",
-    "title": "Wake Me Up",
-    "year": 2013,
+    "artist": "Golden Earring",
+    "title": "Radar Love",
+    "year": 1973,
     "locale": "en-GB",
-    "image": "avicii.jpg",
-    "lyric": "Life's a game made for everyone.\nAnd love is a prize.\nSo wake me up when it's all over.\nWhen I'm wiser and I'm older",
-    "file": "avicii.mp3"
+    "image": "golden-earring.jpg",
+    "lyric": "It's my baby callin', says I need you here.\nAnd it's a half past four and I'm shiftin' gear.",
+    "file": "golden-earring.mp3"
   },
   {
-    "artist": "ABBA",
-    "title": "Dancing Queen",
-    "year": 1976,
+    "artist": "Shocking Blue",
+    "title": "Venus",
+    "year": 1969,
     "locale": "en-GB",
-    "image": "abba.jpg",
-    "lyric":
-      "You're a teaser, you turn 'em on. Leave them burning and then you're gone. Looking out for another, anyone will do. You're in the mood for a dance.",
-    "file": "abba.mp3"
-  },
-  {
-    "artist": "Ace of Base",
-    "title": "All That She Wants",
-    "year": 1993,
-    "locale": "en-GB",
-    "image": "ace-of-base.jpg",
-    "lyric": "It's not a day for work.\nIt's a day for catching tan.\nJust laying on the beach and having fun.\nShe's going to get you.",
-    "file": "ace-of-base.mp3"
-  },
-  {
-    "artist": "Roxette",
-    "title": "The Look",
-    "year": 1988,
-    "locale": "en-GB",
-    "image": "roxette.jpg",
-    "lyric": "Walking like a man.\nHitting like a hammer.\nShe's a juvenile scam. Never was a quitter.\nTasty like a raindrop.",
-    "file": "roxette.mp3"
-  },
-  {
-    "artist": "Icona Pop",
-    "title": "I Love It",
-    "year": 2012,
-    "locale": "en-GB",
-    "image": "icona-pop.jpg",
-    "lyric": "I threw you shit into a bag and pushed it down the stairs.\nI crashed my car into the bridge.\nI don't care! I love it, I don't care!",
-    "file": "icona-pop.mp3"
-  },
-  {
-    "artist": "Zara Larsson",
-    "title": "Never Forget You",
-    "year": 2017,
-    "locale": "en-GB",
-    "image": "zara-larsson.jpg",
-    "lyric":
-      "But sometimes you just gotta know that these things fall through.\nI can't hide my connection with you.\nI’ll never forget you.\nAnd you’ll always be by my side",
-    "file": "zara-larsson.mp3"
-  },
-  {
-    "artist": "Europe",
-    "title": "The Final Countdown",
-    "year": 1986,
-    "locale": "en-GB",
-    "image": "europe.jpg",
-    "lyric": "I guess there is no one to blame. We're leaving ground (leaving ground). Will things ever be the same again?",
-    "file": "europe.mp3"
+    "image": "shocking-blue.jpg",
+    "lyric": "A goddess on a mountain top.\nWas burning like a silver flame.\nThe summit of beauty and love.",
+    "file": "shocking-blue.mp3"
   }
 ]

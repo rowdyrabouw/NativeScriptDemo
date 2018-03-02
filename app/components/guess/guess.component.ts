@@ -33,11 +33,11 @@ export class GuessComponent implements OnInit {
     this._sidedrawerComponent.selectedPage = "guess";
     this._text2speech = new TNSTextToSpeech();
     this._player = new TNSPlayer();
-    this.Image = "~/assets/images/jfokus-spinner.png";
+    this.Image = "~/assets/images/appdevcon`.png";
   }
 
   PickNativeLyric() {
-    this.Image = "~/assets/images/jfokus-spinner.png";
+    this.Image = "~/assets/images/appdevcon.png";
     this._randomSong = songsJSON[0];
     this._player.initFromFile({
       audioFile: "~/assets/audio/" + this._randomSong.file,
@@ -48,7 +48,7 @@ export class GuessComponent implements OnInit {
   }
 
   PickRandomLyric() {
-    this.Image = "~/assets/images/jfokus-spinner.png";
+    this.Image = "~/assets/images/appdevcon.png";
     let lIndex: number;
     if (this._playedSongs.length === songsJSON.length) {
       alert("READY!");
