@@ -14,7 +14,7 @@ const routes: Routes = [
       {
         path: "",
         component: SideDrawerWrapperComponent,
-        children: [{ path: "", redirectTo: "/slider", pathMatch: "full" }]
+        children: [{ path: "", redirectTo: "/guess", pathMatch: "full" }]
       },
       { path: "home", loadChildren: "./components/home/home.module#HomeModule" },
       { path: "slider", loadChildren: "./components/slider/slider.module#SliderModule" },

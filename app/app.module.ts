@@ -6,12 +6,11 @@ import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/a
 
 import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 
-import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-import { Http } from "@angular/http";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -23,7 +22,7 @@ import { LanguageService } from "./services/language.service";
 import { MarvelService } from "./services/marvel.service";
 
 // for AoT compilation
-export function translateLoaderFactory(http: Http) {
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "/i18n/", ".json");
 }
 
@@ -34,12 +33,12 @@ export function translateLoaderFactory(http: Http) {
     NativeScriptModule,
     NativeScriptUISideDrawerModule,
     AppRoutingModule,
-    NativeScriptHttpModule,
+    NativeScriptHttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        deps: [Http],
-        useFactory: translateLoaderFactory
+        deps: [HttpClient],
+        useFactory: createTranslateLoader
       }
     }),
     TNSFontIconModule.forRoot({
