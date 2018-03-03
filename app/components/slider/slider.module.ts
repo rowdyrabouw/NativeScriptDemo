@@ -1,5 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 import { TranslateModule } from "@ngx-translate/core";
@@ -10,7 +10,7 @@ import { SliderRoutingModule } from "./slider-routing.module";
 import { SliderComponent } from "./slider.component";
 
 @NgModule({
-  imports: [NativeScriptModule, TNSFontIconModule, TranslateModule, SliderRoutingModule],
+  imports: [NativeScriptCommonModule, TNSFontIconModule, TranslateModule, SliderRoutingModule],
   declarations: [SliderComponent, SliderIconDirective],
   schemas: [NO_ERRORS_SCHEMA]
 })
