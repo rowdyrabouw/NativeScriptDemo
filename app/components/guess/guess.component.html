@@ -12,18 +12,23 @@
 
     <StackLayout class="page page-content">
 
-        <FlexboxLayout class="spinner-wrapper">
-            <Image [src]="Image" class="spinner"></Image>
-        </FlexboxLayout>
+        <VideoPlayer #videoplayer src="~/assets/video/2unlimited.mp4" autoplay="false" height="100%" [visibility]="showVideo ? 'visible' : 'collapsed'"></VideoPlayer>
 
-        <Button text="Random lyric" (tap)="PickRandomLyric()" class="button button-default"></Button>
-        <Button text="Swedish lyric" (tap)="PickNativeLyric()" class="button button-default"></Button>
-        <Button text="Play lyric" (tap)="SpeakLyric()" class="button button-default"></Button>
-        <Button text="Play song" (tap)="PlaySong()" class="button button-default"></Button>
-        <Label [text]="Artist" textWrap="true"></Label>
-        <Label [text]="Title" textWrap="true"></Label>
-        <Label [text]="Year" textWrap="true"></Label>
-        <Label [text]="Lyric" textWrap="true"></Label>
+        <StackLayout [visibility]="!showVideo ? 'visible' : 'collapsed'">
+
+            <FlexboxLayout class="spinner-wrapper">
+                <Image [src]="Image" class="spinner"></Image>
+            </FlexboxLayout>
+
+            <Button text="Random lyric" (tap)="PickRandomLyric()" class="button button-default"></Button>
+            <Button text="Swedish lyric" (tap)="PickNativeLyric()" class="button button-default"></Button>
+            <Button text="Play lyric" (tap)="SpeakLyric()" class="button button-default"></Button>
+            <Button text="Play song" (tap)="PlaySong()" class="button button-default"></Button>
+            <Label [text]="Artist" textWrap="true"></Label>
+            <Label [text]="Title" textWrap="true"></Label>
+            <Label [text]="Year" textWrap="true"></Label>
+            <Label [text]="Lyric" textWrap="true"></Label>
+        </StackLayout>
 
     </StackLayout>
 

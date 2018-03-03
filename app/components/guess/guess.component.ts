@@ -23,6 +23,8 @@ export class GuessComponent implements OnInit {
   Lyric: string;
   Image: string;
 
+  showVideo: boolean = false;
+
   constructor(private _sidedrawerComponent: SideDrawerComponent) {}
 
   ToggleDrawer() {
