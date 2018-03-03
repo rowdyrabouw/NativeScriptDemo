@@ -44,20 +44,34 @@
     "zone.js": "~0.8.4"
   },
   "devDependencies": {
+    "@angular/compiler-cli": "5.2.0",
+    "@ngtools/webpack": "~1.9.4",
     "babel-traverse": "6.26.0",
     "babel-types": "6.26.0",
     "babylon": "6.18.0",
+    "copy-webpack-plugin": "~4.3.0",
+    "css-loader": "~0.28.7",
+    "extract-text-webpack-plugin": "~3.0.2",
     "lazy": "1.0.11",
     "nativescript-dev-typescript": "0.6.0",
-    "typescript": "2.6.2"
+    "nativescript-dev-webpack": "^0.9.2",
+    "nativescript-worker-loader": "~0.8.1",
+    "raw-loader": "~0.5.1",
+    "resolve-url-loader": "~2.2.1",
+    "typescript": "2.6.2",
+    "uglifyjs-webpack-plugin": "~1.1.6",
+    "webpack": "~3.10.0",
+    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-sources": "~1.1.0"
   },
   "scripts": {
     "ios.alert.version": "echo '\\033[0;101m Did you need to change the version number? (Info.plist -> CFBundleShortVersionString) \\x1B[0m'",
     "ios.alert.build": "echo '\\033[0;101m Did you change the build number? (Info.plist -> CFBundleVersion) \\x1B[0m'",
-    "ios.alert.xcode": "echo '\\033[0;101m Continue in Xcode via platforms/ios/NativeScriptDemo.xcworkspace \\x1B[0m'",
+    "ios.alert.xcode": "echo '\\033[0;101m Continue in Xcode via platforms/ios/MijnInkomenVoorLater.xcworkspace \\x1B[0m'",
     "ios.clean": "rm -rf platforms/ios",
+    "ios.platform.add": "tns platform add ios",
     "ios.prepare": "tns prepare ios --release",
-    "ios.release":
-      "clear && npm run -s ios.alert.version && npm run -s ios.alert.build && npm run -s ios.clean && npm run ios.prepare && npm run -s ios.alert.xcode"
+    "ios.build": "tns build ios --bundle --env.aot --env.uglify --release --forDevice",
+    "ios.release": "clear && npm run -s ios.alert.version && npm run -s ios.alert.build && npm run -s ios.clean && npm run ios.build && npm run -s ios.alert.xcode"
   }
 }
