@@ -1,11 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 
 import { SideDrawerComponent } from "../../shared/sidedrawer/sidedrawer.component";
+
+import { registerElement } from "nativescript-angular/element-registry";
 
 import { TNSTextToSpeech, SpeakOptions } from "nativescript-texttospeech";
 import { TNSPlayer } from "nativescript-audio";
 
 let songsJSON = require("../../assets/data/guess.json");
+
+import { Video } from "nativescript-videoplayer";
+registerElement("VideoPlayer", () => require("nativescript-videoplayer").Video);
 
 @Component({
   moduleId: module.id,
@@ -23,7 +28,7 @@ export class GuessComponent implements OnInit {
   Lyric: string;
   Image: string;
 
-  showVideo: boolean = false;
+  showVideo: boolean = true;
 
   constructor(private _sidedrawerComponent: SideDrawerComponent) {}
 

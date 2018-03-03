@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
@@ -30,6 +30,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [SideDrawerItemComponent],
   imports: [NativeScriptRouterModule.forRoot(routes)],
-  exports: [NativeScriptRouterModule, SideDrawerItemComponent]
+  exports: [NativeScriptRouterModule, SideDrawerItemComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppRoutingModule {}
