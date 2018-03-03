@@ -51,5 +51,13 @@
     "nativescript-dev-typescript": "0.6.0",
     "typescript": "2.6.2"
   },
-  "scripts": {}
+  "scripts": {
+    "ios.alert.version": "echo '\\033[0;101m Did you need to change the version number? (Info.plist -> CFBundleShortVersionString) \\x1B[0m'",
+    "ios.alert.build": "echo '\\033[0;101m Did you change the build number? (Info.plist -> CFBundleVersion) \\x1B[0m'",
+    "ios.alert.xcode": "echo '\\033[0;101m Continue in Xcode via platforms/ios/NativeScriptDemo.xcworkspace \\x1B[0m'",
+    "ios.clean": "rm -rf platforms/ios",
+    "ios.prepare": "tns prepare ios --release",
+    "ios.release":
+      "clear && npm run -s ios.alert.version && npm run -s ios.alert.build && npm run -s ios.clean && npm run ios.prepare && npm run -s ios.alert.xcode"
+  }
 }
