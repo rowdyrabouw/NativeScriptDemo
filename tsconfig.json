@@ -12,5 +12,5 @@
       "*": ["./node_modules/tns-core-modules/*", "./node_modules/*"]
     }
   },
-  "exclude": ["node_modules", "platforms", "**/*.aot.ts"]
+  "exclude": ["node_modules", "platforms"]
 }
