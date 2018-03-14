@@ -1,0 +1,22 @@
+.catwoman {
+  background-image: url("~/assets/images/catwoman.jpg");
+}
+
+.storm {
+  background-image: url("~/assets/images/storm.jpg");
+}
+
+.none {
+  background-image: none;
+}
+
+.button-square {
+  height: 50;
+  width: 50;
+}
+
+.recognizedText {
+  padding: 20;
+  font-size: 26;
+  font-weight: bold;
+}

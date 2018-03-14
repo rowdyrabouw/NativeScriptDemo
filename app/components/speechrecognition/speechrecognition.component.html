@@ -1,26 +1,24 @@
 <ActionBar class="action-bar">
     <NavigationButton visibility="collapsed"></NavigationButton>
-    <StackLayout>
-        <GridLayout columns="35 * 45">
-            <Label [text]="'fa-bars' | fonticon" (tap)="toggleDrawer()" class="fa center" col="0"></Label>
-            <Label [text]="'HOME.TITLE' | translate" class="actionbar-title" col="1"></Label>
-        </GridLayout>
-    </StackLayout>
+    <GridLayout columns="*">
+        <StackLayout orientation="horizontal" col="0">
+            <Label [text]="'fa-sliders' | fonticon" (tap)="showSlider()" class="fa"></Label>
+            <Label [text]="'fa-music' | fonticon" (tap)="showGuessThatSong()" class="fa"></Label>
+            <Label [text]="'fa-microphone' | fonticon" (tap)="showSpeechRecognition()" class="fa"></Label>
+        </StackLayout>
+    </GridLayout>
 </ActionBar>
 
 <ScrollView>
     <DockLayout stretchLastChild="false" class="full" [ngClass]="setClasses()" height="100%" width="100%">
-        <Label dock="top" text="I am on top!"></Label>
-        <StackLayout dock="bottom" orientation="horizontal" height="100" style="background-color: yellow">
+        <VideoPlayer dock="top" #videoplayer src="~/assets/video/storm.mp4" autoplay="false" height="100%" controls="true" [visibility]="isVideoVisible ? 'visible' : 'collapsed'"></VideoPlayer>
+        <Label dock="top" [text]="recognizedText" textWrap="true" class="recognizedText" [visibility]="isListening ? 'visible' : 'collapsed'"></Label>
 
-            <Button class="btn" text="Start" (tap)="startListening() "></Button>
-            <Button class="btn" text="Stop" (tap)="stopListening() "></Button>
-
+        <StackLayout dock="bottom" orientation="horizontal" style="height:100; margin-bottom: 20">
+            <GridLayout rows="*" columns="*, *">
+                <Button row="0" col="0" class="fa button button-square" [text]="'fa-assistive-listening-systems' | fonticon" (tap)="startListening() "></Button>
+                <Button row="0" col="1" class="fa button button-square" [text]="'fa-stop' | fonticon" (tap)="stopListening() "></Button>
+            </GridLayout>
         </StackLayout>
     </DockLayout>
-    <!-- <Button class="btn " text="Speak Hela " (tap)="SpeakHela() "></Button>
-        <Button class="btn " text="Speak Galadriel " (tap)="SpeakGaladriel() "></Button>
-        <Button class="btn " text="Speak Directions " (tap)="SpeakDirections() "></Button>
-        <Button class="btn " text="Directions " (tap)="showDirections() "></Button> -->
-    <!-- <img [src]="image " alt=" " style="width: 350; border-radius: 175; border-width: 15; border-color: yellow; "> -->
 </ScrollView>

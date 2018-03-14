@@ -1,0 +1,21 @@
+@import url("assets/css/font-awesome.css");
+@import url("assets/css/guess.css");
+@import url("assets/css/slider.css");
+@import url("assets/css/speech.css");
+
+.fa {
+  font-family: FontAwesome, fontawesome-webfont;
+  font-size: 30;
+  margin-right: 20;
+}
+
+.action-bar {
+  background-color: rgb(3, 101, 137);
+  color: #fff;
+}
+
+.full {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

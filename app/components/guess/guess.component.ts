@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { RouterExtensions } from "nativescript-angular/router";
 
 import { SideDrawerComponent } from "../../shared/sidedrawer/sidedrawer.component";
 
@@ -10,7 +11,7 @@ import { TNSPlayer } from "nativescript-audio";
 let songsJSON = require("../../assets/data/guess.json");
 
 import { Video } from "nativescript-videoplayer";
-registerElement("VideoPlayer", () => require("nativescript-videoplayer").Video);
+// registerElement("VideoPlayer", () => require("nativescript-videoplayer").Video);
 
 @Component({
   moduleId: module.id,
@@ -27,10 +28,23 @@ export class GuessComponent implements OnInit {
   Year: number;
   Lyric: string;
   Image: string;
+  isInfoVisible: boolean;
 
   showVideo: boolean = true;
 
-  constructor(private _sidedrawerComponent: SideDrawerComponent) {}
+  constructor(private _sidedrawerComponent: SideDrawerComponent, private routerExtensions: RouterExtensions) {}
+
+  showSlider() {
+    this.routerExtensions.navigate(["/slider"]);
+  }
+
+  showSpeechRecognition() {
+    this.routerExtensions.navigate(["/speechrecognition"]);
+  }
+
+  showGuessThatSong() {
+    this.routerExtensions.navigate(["/guess"]);
+  }
 
   ToggleDrawer() {
     this._sidedrawerComponent.toggleDrawer();
@@ -44,6 +58,7 @@ export class GuessComponent implements OnInit {
   }
 
   PickNativeLyric() {
+    this.isInfoVisible = false;
     this.Image = "~/assets/images/appdevcon.png";
     this._randomSong = songsJSON[0];
     this._player.initFromFile({
@@ -55,6 +70,7 @@ export class GuessComponent implements OnInit {
   }
 
   PickRandomLyric() {
+    this.isInfoVisible = false;
     this.Image = "~/assets/images/appdevcon.png";
     let lIndex: number;
     if (this._playedSongs.length === songsJSON.length) {
@@ -85,6 +101,7 @@ export class GuessComponent implements OnInit {
   }
 
   PlaySong() {
+    this.isInfoVisible = true;
     this.Artist = this._randomSong.artist;
     this.Title = this._randomSong.title;
     this.Year = this._randomSong.year;

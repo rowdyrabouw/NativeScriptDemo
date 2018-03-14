@@ -14,15 +14,11 @@ const routes: Routes = [
       {
         path: "",
         component: SideDrawerWrapperComponent,
-        children: [{ path: "", redirectTo: "/guess", pathMatch: "full" }]
+        children: [{ path: "", redirectTo: "/slider", pathMatch: "full" }]
       },
-      { path: "home", loadChildren: "./components/home/home.module#HomeModule" },
       { path: "slider", loadChildren: "./components/slider/slider.module#SliderModule" },
-      { path: "api", loadChildren: "./components/api/api.module#ApiModule" },
       { path: "guess", loadChildren: "./components/guess/guess.module#GuessModule" },
-      { path: "speechrecognition", loadChildren: "./components/speechrecognition/speechrecognition.module#SpeechRecognitionModule" },
-      { path: "video", loadChildren: "./components/video/video.module#VideoModule" },
-      { path: "timebox", loadChildren: "./components/timebox/timebox.module#TimeboxModule" }
+      { path: "speechrecognition", loadChildren: "./components/speechrecognition/speechrecognition.module#SpeechRecognitionModule" }
     ]
   }
 ];

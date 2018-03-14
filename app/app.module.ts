@@ -1,6 +1,5 @@
 import { NgModule, NgModuleFactoryLoader, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NSModuleFactoryLoader } from "nativescript-angular/router";
 
 import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/angular";
 
@@ -46,7 +45,7 @@ export function createTranslateLoader(http: HttpClient) {
     })
   ],
   declarations: [AppComponent, SideDrawerComponent, SideDrawerWrapperComponent],
-  providers: [LanguageService, MarvelService, { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader }],
+  providers: [LanguageService, MarvelService],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {}

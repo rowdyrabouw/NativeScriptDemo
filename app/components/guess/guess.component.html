@@ -1,33 +1,36 @@
 <ActionBar class="action-bar">
     <NavigationButton visibility="collapsed"></NavigationButton>
-    <StackLayout>
-        <GridLayout columns="35 * 45">
-            <Label [text]="'fa-bars' | fonticon" (tap)="ToggleDrawer()" class="fa center" col="0"></Label>
-            <Label [text]="'HOME.TITLE' | translate" class="actionbar-title" col="1"></Label>
-        </GridLayout>
-    </StackLayout>
+    <GridLayout columns="*">
+        <StackLayout orientation="horizontal" col="0">
+            <Label [text]="'fa-sliders' | fonticon" (tap)="showSlider()" class="fa"></Label>
+            <Label [text]="'fa-music' | fonticon" (tap)="showGuessThatSong()" class="fa"></Label>
+            <Label [text]="'fa-microphone' | fonticon" (tap)="showSpeechRecognition()" class="fa"></Label>
+        </StackLayout>
+    </GridLayout>
 </ActionBar>
-
 <ScrollView>
 
     <StackLayout class="page page-content">
 
-        <VideoPlayer #videoplayer src="~/assets/video/2unlimited.mp4" autoplay="false" height="100%" [visibility]="showVideo ? 'visible' : 'collapsed'"></VideoPlayer>
-
-        <StackLayout [visibility]="!showVideo ? 'visible' : 'collapsed'">
+        <StackLayout>
 
             <FlexboxLayout class="spinner-wrapper">
                 <Image [src]="Image" class="spinner"></Image>
             </FlexboxLayout>
 
-            <Button text="Random lyric" (tap)="PickRandomLyric()" class="button button-default"></Button>
-            <Button text="Swedish lyric" (tap)="PickNativeLyric()" class="button button-default"></Button>
-            <Button text="Play lyric" (tap)="SpeakLyric()" class="button button-default"></Button>
-            <Button text="Play song" (tap)="PlaySong()" class="button button-default"></Button>
-            <Label [text]="Artist" textWrap="true"></Label>
-            <Label [text]="Title" textWrap="true"></Label>
-            <Label [text]="Year" textWrap="true"></Label>
-            <Label [text]="Lyric" textWrap="true"></Label>
+            <GridLayout rows="*, *" columns="*, *" style="padding: 0 20">
+                <Button row="0" col="0" text="Random lyric" (tap)="PickRandomLyric()" class="button"></Button>
+                <!-- <Button row="1" col="0" text="Play lyric again" (tap)="SpeakLyric()" class="button"></Button> -->
+                <Button row="0" col="1" [text]="'fa-play' | fonticon" (tap)="PlaySong()" class="fa button" rowSpan="2"></Button>
+                <Button row="1" col="0" text="T-Shirt lyric" (tap)="PickNativeLyric()" class="button"></Button>
+            </GridLayout>
+
+            <StackLayout class="info" [visibility]="isInfoVisible ? 'visible' : 'collapsed'">
+                <Label [text]="Artist" textWrap="true"></Label>
+                <Label [text]="Title" textWrap="true"></Label>
+                <Label [text]="Year" textWrap="true"></Label>
+                <Label [text]="Lyric" textWrap="true" style="margin-top: 10"></Label>
+            </StackLayout>
         </StackLayout>
 
     </StackLayout>
