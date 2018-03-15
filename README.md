@@ -1,1 +1,1 @@
-# Mobilization 7 Demo app
+# AppDevCOn 2018 Demo app
