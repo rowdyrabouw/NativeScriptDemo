@@ -24,6 +24,8 @@
     "@angular/router": "5.2.0",
     "@ngx-translate/core": "9.1.1",
     "@ngx-translate/http-loader": "2.0.1",
+    "ios-deploy": "^1.9.2",
+    "ipa-deploy": "^0.3.1",
     "md5": "^2.2.1",
     "nativescript-angular": "5.2.0",
     "nativescript-audio": "^4.0.3",
@@ -68,10 +70,12 @@
     "ios.alert.version": "echo '\\033[0;101m Did you need to change the version number? (Info.plist -> CFBundleShortVersionString) \\x1B[0m'",
     "ios.alert.build": "echo '\\033[0;101m Did you change the build number? (Info.plist -> CFBundleVersion) \\x1B[0m'",
     "ios.alert.xcode": "echo '\\033[0;101m Continue in Xcode via platforms/ios/MijnInkomenVoorLater.xcworkspace \\x1B[0m'",
+    "ios.ipadeploy": "ipa-deploy platforms/ios/build/device/NativeScriptDemo.ipa",
     "ios.clean": "rm -rf platforms/ios",
     "ios.platform.add": "tns platform add ios",
     "ios.prepare": "tns prepare ios --release",
-    "ios.build": "tns build ios --bundle --env.aot --env.uglify --release --forDevice",
+    "ios.build.webpack": "tns build ios --bundle --env.aot --env.uglify --release --forDevice",
+    "ios.build": "tns build ios --release --provision d12a8896-80e5-4060-bdb1-409a673460bd --forDevice",
     "ios.release": "clear && npm run -s ios.alert.version && npm run -s ios.alert.build && npm run -s ios.clean && npm run ios.build && npm run -s ios.alert.xcode"
   }
 }

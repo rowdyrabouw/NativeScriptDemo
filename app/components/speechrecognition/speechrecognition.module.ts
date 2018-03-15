@@ -6,11 +6,10 @@ import { TranslateModule } from "@ngx-translate/core";
 
 import { SpeechRecognitionRoutingModule } from "./speechrecognition-routing.module";
 import { SpeechRecognitionComponent } from "./speechrecognition.component";
-import { DirectionsComponent } from "./directions.component";
 
 @NgModule({
   imports: [NativeScriptCommonModule, TNSFontIconModule, TranslateModule, SpeechRecognitionRoutingModule],
-  declarations: [SpeechRecognitionComponent, DirectionsComponent],
+  declarations: [SpeechRecognitionComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class SpeechRecognitionModule {}
