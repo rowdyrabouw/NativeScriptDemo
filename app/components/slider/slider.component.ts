@@ -65,7 +65,7 @@ export class SliderComponent implements OnInit {
   onSliderValueChange(args) {
     let slider = <Slider>args.object;
     this.viewStack.opacity = slider.value / 100;
-    if (Math.round(slider.value) == 100) {
+    if (Math.round(slider.value) == 10) {
       this.player.play();
     } else {
       if (Math.round(slider.value) == 0) {
